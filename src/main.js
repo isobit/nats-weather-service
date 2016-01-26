@@ -3,6 +3,7 @@ import HTTP from 'q-io/http';
 import NATS from 'nats';
 
 export function main() {
+
 	program
 		.version(require('../package.json').version)
 		.option('-s, --server <uri>', 'specify NATS uri')
