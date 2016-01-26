@@ -4,7 +4,7 @@ import NATS from 'nats';
 
 export function main() {
 	program
-		.version('0.0.1')
+		.version(require('../package.json').version)
 		.option('-s, --server <uri>', 'specify NATS uri')
 		.option('-t, --token <token>', 'specify forecast.io token')
 		.option('-v, --verbose', 'verbose mode')
