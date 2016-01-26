@@ -11,6 +11,11 @@ export function main() {
 		.option('-v, --verbose', 'verbose mode')
 		.parse(process.argv);
 
+	if (!program.token) {
+		console.log("ERROR: no token specified");
+		process.exit(1);
+	}
+
 	var nats = NATS.connect(program.server);
 
 	function log(subject, msg) { 
