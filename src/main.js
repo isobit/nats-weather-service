@@ -37,12 +37,12 @@ export function main() {
 
 	nats.on('connect', () => {
 		log('NATS', 'connect')
-		nats.subscribe('weather.get', async (msg, reply) => {
+		nats.subscribe('weather:get', async (msg, reply) => {
 			log('REQUEST WEATHER', msg);
 			var data = await getWeather(msg);
 			nats.publish(reply, JSON.stringify(data));
 		});
-		nats.subscribe('weather.temp.get', async (msg, reply) => {
+		nats.subscribe('weather.temp:get', async (msg, reply) => {
 			log('REQUEST TEMP', msg);
 			var data = await getWeather(msg);
 			nats.publish(reply, data.temperature);
